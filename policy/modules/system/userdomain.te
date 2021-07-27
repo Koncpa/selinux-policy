@@ -540,6 +540,9 @@ systemd_read_logind_sessions_files(confined_admindomain)
 systemd_write_inhibit_pipes(confined_admindomain)
 systemd_write_inherited_logind_sessions_pipes(confined_admindomain)
 systemd_login_read_pid_files(confined_admindomain)
+
+userdom_manage_admin_files(confined_admindomain)
+
 tunable_policy(`deny_execmem',`', `
 	# Allow loading DSOs that require executable stack.
 	allow confined_admindomain self:process execmem;

@@ -91,7 +91,6 @@ userdom_manage_user_home_dirs(sysadm_t)
 userdom_home_filetrans_user_home_dir(sysadm_t)
 userdom_manage_tmp_role(sysadm_r, sysadm_t)
 userdom_exec_admin_home_files(sysadm_t)
-userdom_manage_admin_files(sysadm_t)
 userdom_manage_admin_dirs(sysadm_t)
 
 corenet_ib_access_unlabeled_pkeys(sysadm_t)
