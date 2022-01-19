@@ -38,6 +38,28 @@ interface(`asterisk_exec',`
 	can_exec($1, asterisk_exec_t)
 ')
 
+########################################
+## <summary>
+##      Make the specified type by a asterisk type
+##      and allow domain transition to postfix_postdrob_t.
+## </summary>
+## <param name="type">
+##      <summary>
+##      Type to be used for domain transition due 
+##      TE conflict rule in asterisk domain.
+##      </summary>
+## </param>
+#
+interface(`asterisk_postfix_domtrans',`
+        gen_require(`
+                attribute asterisk_type;
+        ')
+
+	typeattribute $1 asterisk_type;
+
+	postfix_domtrans_postdrop(asterisk_type)
+')
+
 #####################################
 ## <summary>
 ##	Connect to asterisk over a unix domain.

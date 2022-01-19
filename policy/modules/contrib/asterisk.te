@@ -5,6 +5,8 @@ policy_module(asterisk, 1.12.1)
 # Declarations
 #
 
+attribute asterisk_type;
+
 type asterisk_t;
 type asterisk_exec_t;
 init_daemon_domain(asterisk_t, asterisk_exec_t)
@@ -144,6 +146,8 @@ fs_search_auto_mountpoints(asterisk_t)
 
 auth_use_nsswitch(asterisk_t)
 
+asterisk_postfix_domtrans(asterisk_t)
+
 logging_search_logs(asterisk_t)
 logging_send_syslog_msg(asterisk_t)
 
@@ -169,9 +173,9 @@ optional_policy(`
 	mta_system_content(asterisk_tmp_t)
 ')
 
-optional_policy(`
-	postfix_domtrans_postdrop(asterisk_t)
-')
+#optional_policy(`
+#	postfix_domtrans_postdrop(asterisk_t)
+#')
 
 optional_policy(`
 	postgresql_stream_connect(asterisk_t)
