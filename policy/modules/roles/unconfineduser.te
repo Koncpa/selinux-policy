@@ -6,6 +6,8 @@ policy_module(unconfineduser, 1.0.0)
 #
 attribute unconfined_login_domain;
 
+attribute unconfined_role_change_type;
+
 ## <desc>
 ## <p>
 ## allow unconfined users to transition to the chrome sandbox domains when running chrome-sandbox
@@ -94,6 +96,7 @@ systemd_config_all_services(unconfined_t)
 ssh_dyntransition_to(unconfined_t)
 
 unconfined_domain_noaudit(unconfined_t)
+#unconfined_role_change(unconfined_role_change_type)
 domain_named_filetrans(unconfined_t)
 domain_transition_all(unconfined_t)
 

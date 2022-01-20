@@ -32,6 +32,23 @@ interface(`unconfined_role_change_to',`
 
 ########################################
 ## <summary>
+##      Allow change to the unconfined role via adding to attribute.
+## </summary>
+## <param name="domain">
+##      <summary>
+##      Domain allowed access.
+##      </summary>
+## </param>
+#
+interface(`unconfined_role_change_attr',`
+        gen_require(`
+                attribute unconfined_role_change_type;
+        ')
+        typeattribute $1 unconfined_role_change_type;
+')
+
+########################################
+## <summary>
 ##	Transition to the unconfined domain.
 ## </summary>
 ## <param name="domain">
